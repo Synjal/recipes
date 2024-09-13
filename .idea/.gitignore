@@ -7,4 +7,9 @@
 /dataSources/
 /dataSources.local.xml
 # Ignore variable environments
-.env
+/.env.prod
+/.env.test
+/src/config/firebase-service-account-prod.json
+/src/config/firebase-service-account-test.json
+/.prettierrc
+/.prettierignore

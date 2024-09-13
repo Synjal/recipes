@@ -1,44 +1,30 @@
-import express, { Request, Response, NextFunction } from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-import createError from 'http-errors';
+import express, { Request, Response, NextFunction } from 'express'
+import path from 'path'
+import logger from 'morgan'
+import createError from 'http-errors'
 
-import admin from 'firebase-admin';
-import * as dotenv from 'dotenv';
+import recipeRouter from './routes/recipe'
 
-import indexRouter from './routes';
-import recipe from "./routes/recipe";
+const app = express()
 
-dotenv.config();
-const app = express();
+app.use(express.static(path.join(__dirname, 'public')))
 
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-});
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-const db = admin.firestore();
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-app.use('/', indexRouter);
-app.use('/recipe', recipe)
+app.use('/recipe', recipeRouter)
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-  next(createError(404));
-});
+    next(createError(404))
+})
 
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  res.status(err.status || 500);
-  res.json({
-    message: err.message,
-    error: req.app.get('env') === 'development'? err : {}
-  });
-});
+app.use((err: any, req: Request, res: Response) => {
+    res.status(err.status || 500)
+    res.json({
+        message: err.message,
+        error: req.app.get('env') === 'development' ? err : {},
+    })
+})
 
-module.exports = app;
+export default app

@@ -1,7 +1,7 @@
-import { Unit } from "./Unit";
+import { Unit } from './Unit'
 
 export interface Ingredient {
-    name: string,
-    quantity: number,
+    name: string
+    quantity: number
     unit: Unit
 }
