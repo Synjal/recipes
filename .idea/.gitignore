@@ -1,15 +1,24 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-# Ignore variable environments
-/.env.prod
-/.env.test
+# Node modules
+/node_modules/
+
+# Environment files
+.env.prod
+.env.test
+
+# Firebase service account keys
 /src/config/firebase-service-account-prod.json
 /src/config/firebase-service-account-test.json
-/.prettierrc
-/.prettierignore
+
+# Logs
+*.log
+
+# Build outputs
+/dist/
+/build/
+
+# IDE specific files
+/.idea/
+
+# OS specific files
+.DS_Store
+Thumbs.db
