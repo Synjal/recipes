@@ -9,6 +9,9 @@
 /src/config/firebase-service-account-prod.json
 /src/config/firebase-service-account-test.json
 
+# Documentation
+/docs/
+
 # Logs
 *.log
 
