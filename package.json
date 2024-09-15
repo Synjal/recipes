@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=development ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
+    "start:dev": "cross-env NODE_ENV=development ts-node src/index.ts",
     "start:prod": "cross-env NODE_ENV=production node dist/index.js",
     "build": "tsc",
-    "postbuild": "copy src\\config\\firebase-service-account-prod.json dist\\config\\ && copy src\\config\\firebase-service-account-test.json dist\\config\\",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\""
   },

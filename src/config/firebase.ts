@@ -2,14 +2,13 @@ import { initializeApp, cert, ServiceAccount } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 import * as dotenv from 'dotenv'
 
-dotenv.config({
-    path: process.env.NODE_ENV === 'production' ? '.env.prod' : '.env.test',
-})
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'development') {
+    dotenv.config({
+        path: '.env',
+    })
+}
 
-const serviceAccount =
-    process.env.NODE_ENV === 'production'
-        ? require('./firebase-service-account-prod.json')
-        : require('./firebase-service-account-test.json')
+const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS || '{}')
 
 initializeApp({
     credential: cert(serviceAccount as ServiceAccount),
