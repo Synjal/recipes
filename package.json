@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "ts-node src/index.ts",
-    "start:deploy": "cross-env NODE_ENV=production node dist/index.js",
+    "start:deploy": "node dist/index.js",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\""
