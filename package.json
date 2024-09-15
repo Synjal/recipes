@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "cross-env NODE_ENV=local ts-node src/index.ts",
     "start:deploy": "node dist/index.js",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",

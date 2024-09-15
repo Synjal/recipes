@@ -18,6 +18,10 @@ const swaggerOptions = {
                             type: 'string',
                             description: 'The title of the recipe',
                         },
+                        description: {
+                            type: 'string',
+                            description: 'The description of the recipe',
+                        },
                         image: {
                             type: 'string',
                             description: 'The image URL of the recipe',
@@ -58,7 +62,11 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'https://recipe-api.example.com',
+                url: 'https://recipes-api-test-600h.onrender.com',
+                description: 'Development server',
+            },
+            {
+                url: 'https://recipes-api-prod.onrender.com',
                 description: 'Production server',
             },
         ],
