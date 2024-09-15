@@ -4,7 +4,7 @@ import app from './app'
 const server = http.createServer(app)
 
 server.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`)
+    process.env.NODE_ENV === 'development' && console.info("--- DEV MODE ---")
     console.log(`Environment: ${process.env.NODE_ENV}`)
     console.log(`Database URL: ${process.env.FIREBASE_DATABASE_URL}`)
     console.log(`API endpoint: ${process.env.BASE_URL}`)

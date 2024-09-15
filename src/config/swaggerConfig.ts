@@ -58,10 +58,6 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://localhost:3000',
-                description: 'Development server',
-            },
-            {
                 url: 'https://recipe-api.example.com',
                 description: 'Production server',
             },

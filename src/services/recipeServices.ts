@@ -9,6 +9,7 @@ export const getAllRecipes = async () => {
             return {
                 id: doc.id,
                 title: data.title,
+                description: data.description || '',
                 imageUrl:
                     data.image ||
                     process.env.BASE_URL + 'images/default_food.jpeg',
@@ -17,7 +18,7 @@ export const getAllRecipes = async () => {
                     quantity: ingredient.quantity,
                     unit: ingredient.unit,
                 })),
-                favorite: data.favorite,
+                favorite: data.favorite || false,
             }
         })
     } catch (err) {
