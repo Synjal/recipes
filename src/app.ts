@@ -12,11 +12,15 @@ import imageRouter from './routes/image'
 import { swaggerDocs } from './config/swaggerConfig'
 
 const app = express()
+import cors from 'cors'
 
 // ---------- Middlewares ----------
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+// ---------- CORS ----------
+app.use(cors())
 
 // ---------- Images ----------
 app.use(
