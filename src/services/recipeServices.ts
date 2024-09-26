@@ -10,7 +10,7 @@ export const getAllRecipes = async () => {
                 id: doc.id,
                 title: data.title,
                 description: data.description || '',
-                imageUrl:
+                image:
                     data.image ||
                     process.env.BASE_URL + 'images/default_food.jpeg',
                 ingredients: data.ingredients.map(ingredient => ({
